@@ -41,29 +41,34 @@ void adiciona_elemento(float percentual, char estado[30], char capital[30], list
     p->tamanho++;
 }
 
-// nesta função serão impressas apenas as idades por simplicidade.
-// alberto
+// Essa função irá imprimir a lista
 void imprime_lista(lista *p){    
     printf("Estado\t\tCapital\t\tPercentual\n");
     printf("----------------------------------------\n");
+    //O laço percorrerá os elementos do primeiro até o último exibindo o estado, a capital e o percentual
     for(no_simples *x = p->primeiro; x != NULL; x = x->prox){
         printf("%s\t\t%s\t\t%.2f\n", x->estado, x->capital, x->percentual);
     }
     printf("----------------------------------------\n");
 }
-// alberto
+
+// Essa função lerá o código do estado e retornará o percentual de católicos
 void perc_cat_por_codigo_estado(char estado[30], lista *p){
-    int encontrou = 0;
+    int encontrou = 0; //Contador para verificar caso o caso do if tenha sido atendido
+    //Um laço que percorrerá a lista e procurará um estado que confere com aquele digitado pelo o usuário
     for(no_simples *atual=p->primeiro; atual != NULL; atual = atual->prox){
         if (strcmp(atual->estado, estado) == 0){
             encontrou = 1;
+            //Exibindo o percentual de católicos do estado digitado pelo usuário
             printf("O percentual de católicos do estado %s é : %d", atual->estado, atual->percentual);
         }
+        //Caso o if não tenha sido atendido
         if(encontrou == 0){
             printf("O código digitado não corresponde a nenhum estado.\n");
         }
     }
 }
+
 
 void modifica_percentual(float novo_percentual, char estado[30], lista *p){
     // preciso ir percorrendo a lista até encontra o estado
