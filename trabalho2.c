@@ -52,12 +52,18 @@ void imprime_lista(lista *p){
     printf("----------------------------------------\n");
 }
 // alberto
-void busca(char estado[30], lista *p){
-
+void perc_cat_por_codigo_estado(char estado[30], lista *p){
+    int encontrou = 0;
+    for(no_simples *atual=p->primeiro; atual != NULL; atual = atual->prox){
+        if (strcmp(atual->estado, estado) == 0){
+            encontrou = 1;
+            printf("O percentual de católicos do estado %s é : %d", atual->estado, atual->percentual);
+        }
+        if(encontrou == 0){
+            printf("O código digitado não corresponde a nenhum estado.\n");
+        }
+    }
 }
-
-
-
 
 void modifica_percentual(float novo_percentual, char estado[30], lista *p){
     // preciso ir percorrendo a lista até encontra o estado
