@@ -43,12 +43,13 @@ void adiciona_elemento(float percentual, char estado[30], char capital[30], list
 
 // nesta função serão impressas apenas as idades por simplicidade.
 // alberto
-void imprime_lista(lista *p){
-    // printf("\n lista: ");
-    // for(no_simples *x=p->primeiro; x != NULL; x = x->prox){
-    //     //printf("nome: %s, idade: %d\n", x->nome, x->idade);
-    //     printf("%d ", x->idade);
-    // }
+void imprime_lista(lista *p){    
+    printf("Estado\t\tCapital\t\tPercentual\n");
+    printf("----------------------------------------\n");
+    for(no_simples *x = p->primeiro; x != NULL; x = x->prox){
+        printf("%s\t\t%s\t\t%.2f\n", x->estado, x->capital, x->percentual);
+    }
+    printf("----------------------------------------\n");
 }
 // alberto
 void busca(char estado[30], lista *p){
